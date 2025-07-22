@@ -1,0 +1,260 @@
+:root {
+  --bg: #f0f0f0;
+  --card: #fff;
+  --text: #000;
+}
+
+body.dark {
+  --bg: #1c1c1c;
+  --card: #2c2c2c;
+  --text: #f8f8f8;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  text-align: center;
+  padding: 30px;
+  transition: 0.3s;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  width: 250px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  margin: 5px;
+  background-color: #ef5350;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d32f2f;
+}
+
+.card {
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--card);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 200px;
+  height: 200px;
+}
+
+.hidden {
+  display: none;
+}
+
+#pokemonStats ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+/* Grid view */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.grid-item {
+  background-color: var(--card);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+}
+
+.grid-item img {
+  width: 100px;
+  height: 100px;
+}
+
+
+/* Loader Spinner */
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #ef5350;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Pagination */
+.pagination {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+/* Favorite star */
+.grid-item .star {
+  font-size: 18px;
+  color: gold;
+  cursor: pointer;
+}
+
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.suggestions {
+  position: absolute;
+  background-color: var(--card);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 250px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.suggestions div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestions div:hover {
+  background-color: #f0f0f0;
+}
+
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .controls, .navigation, .pagination {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input, select, button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+.battle {
+  margin-top: 20px;
+  padding: 15px;
+  background: var(--card);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.battle input {
+  margin: 5px;
+  padding: 10px;
+  width: 45%;
+}
+
+#battleResult {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+
+#evolutionChain ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#evolutionChain li {
+  padding: 6px 12px;
+  background-color: #ddd;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.battle {
+  margin-top: 20px;
+  padding: 15px;
+  background: var(--card);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.battle input {
+  margin: 5px;
+  padding: 10px;
+  width: 45%;
+}
+
+#battleResult {
+  margin-top: 15px;
+  font-weight: bold;
+}
+/* evolution chains */
+
+#evolutionChain ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+#evolutionChain li {
+  padding: 6px 12px;
+  background-color: #ddd;
+  border-radius: 8px;
+  cursor: default;
+}
+
+
+/* animation 
+
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}

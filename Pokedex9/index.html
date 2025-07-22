@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+<meta name="theme-color" content="#ef5350">
+  <link rel="stylesheet" href="./style.css">
+<link rel="manifest" href="./manifest.json">
+
+
+  <title>Pokédex</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Pokédex</h1>
+
+    <div class="controls">
+        <button onclick="startVoiceSearch()">🎤 Speak</button>
+
+        <select id="typeFilter" onchange="applyFilters()">
+  <option value="">All Types</option>
+  <option value="normal">Normal</option>
+  <option value="fire">Fire</option>
+  <option value="water">Water</option>
+  <option value="electric">Electric</option>
+  <option value="grass">Grass</option>
+  <option value="ice">Ice</option>
+  <option value="fighting">Fighting</option>
+  <option value="poison">Poison</option>
+  <option value="ground">Ground</option>
+  <option value="flying">Flying</option>
+  <option value="psychic">Psychic</option>
+  <option value="bug">Bug</option>
+  <option value="rock">Rock</option>
+  <option value="ghost">Ghost</option>
+  <option value="dragon">Dragon</option>
+  <option value="dark">Dark</option>
+  <option value="steel">Steel</option>
+  <option value="fairy">Fairy</option>
+</select>
+
+<!-- <label>
+  <input type="checkbox" id="showFavoritesOnly" onchange="applyFilters()" />
+  Favorites Only
+</label> -->
+
+
+
+<div id="suggestions" class="suggestions"></div>
+
+      <input type="text" id="pokemonInput" placeholder="Enter Pokémon name or ID..." />
+      <button onclick="searchPokemon()">Search</button>
+      <button onclick="toggleTheme()">Toggle Theme</button>
+      <button onclick="loadGrid()">Show Grid</button>
+    </div>
+
+    <div class="navigation">
+      <button onclick="changePokemon(-1)">← Previous</button>
+      <button onclick="changePokemon(1)">Next →</button>
+    </div>
+
+    <div id="pokemonCard" class="card hidden">
+      <img id="pokemonImage" src="" alt="Pokémon Image" />
+      <h2 id="pokemonName"></h2>
+      <p><strong>Type:</strong> <span id="pokemonTypes"></span></p>
+      <p><strong>Height:</strong> <span id="pokemonHeight"></span> dm</p>
+      <p><strong>Weight:</strong> <span id="pokemonWeight"></span> hg</p>
+      <div id="pokemonStats">
+        <h3>Base Stats:</h3>
+        <ul></ul>
+      </div>
+      <!-- Evolution chain -->
+       <div id="evolutionChain">
+  <h3>Evolution Chain:</h3>
+  <ul id="evoList"></ul>
+</div>
+
+
+    </div>
+
+    <div id="gridContainer" class="grid hidden"></div>
+  </div>
+
+  <div class="pagination hidden" id="pagination">
+  <button onclick="changePage(-1)">← Prev Page</button>
+  <span id="pageIndicator">Page 1</span>
+  <button onclick="changePage(1)">Next Page →</button>
+</div>
+
+<h2>Your Favorites</h2>
+<div id="favoritesContainer" class="grid"></div>
+
+<div id="loader" class="loader hidden"></div>
+
+
+<!-- export as JSON -->
+ <button onclick="exportFavorites()">Export Favorites</button>
+
+
+<!-- battle -->
+ <h2>Battle Simulator</h2>
+<div class="battle">
+  <input type="text" id="battlePoke1" placeholder="Pokémon 1 name or ID" />
+  <input type="text" id="battlePoke2" placeholder="Pokémon 2 name or ID" />
+  <button onclick="battle()">Fight!</button>
+  <div id="battleResult"></div>
+</div>
+
+
+ <script src="./script.js"></script>
+
+</body>
+</html>
